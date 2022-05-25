@@ -15,7 +15,7 @@ import cv2
 if __name__ == "__main__":
     ############
     """let 1 px = 1um"""
-    LAMBDA = 100
+    LAMBDA = 50
     HEIGHT = 400
     WIDTH  = 400
     TOWERS = 3

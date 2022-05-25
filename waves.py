@@ -33,12 +33,7 @@ class Point_Source:
         col_mat = np.array([col]*rows) - self.x
         distance_matrix = np.sqrt(np.power(row_mat,2) + np.power(col_mat,2))
         disp += np.sin(two_pi * distance_matrix / self.lamb + self.phase) 
-        # for row in range(len(disp)):
-        #     for col in range(len(disp[0])):
-        #         displacement = np.sqrt((row - self.y)**2 + (col - self.x)**2)
-        #         disp[row][col] += np.sin((two_pi*displacement)/self.lamb + self.phase)
         return disp
-
 
 
 if __name__ == "__main__":
@@ -51,7 +46,7 @@ if __name__ == "__main__":
     disp = np.zeros((HEIGHT,WIDTH))
     sources = []
     for i in tqdm(range(-5,5)):
-        sources.append(Point_Source(WIDTH/2 + 20*i, HEIGHT-50, LAMBDA))
+        sources.append(Point_Source(WIDTH/2 + 20*i, HEIGHT-150, LAMBDA))
         sources[-1].gen_wave(disp)
     disp = disp**2 # obtain intensity
     disp = np.array(255 * disp / np.max(disp), dtype=np.uint8)
