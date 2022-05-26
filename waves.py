@@ -32,15 +32,15 @@ class Point_Source:
         row_mat = np.rot90([row]*cols, -1) - self.y
         col_mat = np.array([col]*rows) - self.x
         distance_matrix = np.sqrt(np.power(row_mat,2) + np.power(col_mat,2))
-        disp += np.sin(two_pi * distance_matrix / self.lamb + self.phase) 
+        disp += np.sin(two_pi * distance_matrix / self.lamb + self.phase) * self.intensity 
         return disp
 
 
 if __name__ == "__main__":
     ############
     """let 1 px = 1um"""
-    LAMBDA = 100
-    HEIGHT = 800
+    LAMBDA = 60
+    HEIGHT = 1000
     WIDTH  = 800
     ############
     disp = np.zeros((HEIGHT,WIDTH))
@@ -53,3 +53,4 @@ if __name__ == "__main__":
     for src in sources:
         disp = cv2.circle(disp, (src.x, src.y), 5, (255,0,255), 5)
     plt.imshow(disp, cmap = 'viridis')
+    plt.show()

@@ -18,7 +18,7 @@ if __name__ == "__main__":
     LAMBDA = 50
     HEIGHT = 400
     WIDTH  = 400
-    TOWERS = 3
+    TOWERS = 8
     ############
     towers = []
     f_buf = []
@@ -39,3 +39,4 @@ if __name__ == "__main__":
     for tower in towers:
         disp = cv2.circle(disp, (tower.x, tower.y), 5, (255,0,255), 5)
     plt.imshow(disp, cmap = 'viridis')
+    plt.show()
